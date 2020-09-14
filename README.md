@@ -1,2 +1,2 @@
-# .files
-Settings &amp; themes. Current style: groove
+# Dotfiles
+### Color scheme: [gruvbox](https://github.com/morhetz/gruvbox)
