@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unattend xmlns="urn:schemas-microsoft-com:unattend" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State">
+  <settings pass="offlineServicing" />
+  <settings pass="windowsPE">
+    <component name="Microsoft-Windows-International-Core-WinPE" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+      <UILanguage>en-US</UILanguage>
+    </component>
+    <component name="Microsoft-Windows-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+      <ImageInstall>
+        <OSImage>
+          <Compact>false</Compact>
+        </OSImage>
+      </ImageInstall>
+      <UserData>
+        <ProductKey>
+          <Key>NPPR9-FWDCX-D2C8J-H872K-2YT43</Key>
+          <WillShowUI>OnError</WillShowUI>
+        </ProductKey>
+        <AcceptEula>true</AcceptEula>
+      </UserData>
+      <UseConfigurationSet>true</UseConfigurationSet>
+      <RunSynchronous>
+        <RunSynchronousCommand wcm:action="add">
+          <Order>1</Order>
+          <Path>cmd /c "reg add HKLM\SYSTEM\Setup\LabConfig /v BypassTPMCheck /t REG_DWORD /d 1 /f &amp; reg add HKLM\SYSTEM\Setup\LabConfig /v BypassSecureBootCheck /t REG_DWORD /d 1 /f &amp; reg add HKLM\SYSTEM\Setup\LabConfig /v BypassRAMCheck /t REG_DWORD /d 1 /f"</Path>
+        </RunSynchronousCommand>
+        <RunSynchronousCommand wcm:action="add">
+          <Order>2</Order>
+          <Path>cmd /c "echo FOR /L %%i IN (0,1,600) DO ( ping -n 2 127.0.0.1 ^&gt;nul ^&amp; FOR %%d IN (C D E F W) DO IF EXIST %%d:\Windows\System32\config\SYSTEM ( reg load HKLM\sys %%d:\Windows\System32\config\SYSTEM ^&amp;^&amp; ( for %%s in (Sense WdBoot WdFilter WdNisDrv WdNisSvc WinDefend) do reg add HKLM\sys\ControlSet001\Services\%%s /v Start /t REG_DWORD /d 4 /f ) ^&amp; reg unload HKLM\sys ^&amp; exit ) ) > X:\def.bat &amp; echo CreateObject("WScript.Shell").Run "X:\def.bat", 0 > X:\hide.vbs &amp; wscript X:\hide.vbs"</Path>
+        </RunSynchronousCommand>
+      </RunSynchronous>
+    </component>
+  </settings>
+  <settings pass="generalize" />
+  <settings pass="specialize">
+    <component name="Microsoft-Windows-Deployment" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+      <RunSynchronous>
+		<RunSynchronousCommand wcm:action="add">
+          <Order>1</Order>
+          <Path>powershell.exe -WindowStyle Maximized -NoProfile -ExecutionPolicy Bypass -File "C:\Windows\Setup\Scripts\Invoke-SetupStage.ps1" -Stage "PreLogon"</Path>
+          <Description>Run PreLogon Scripts</Description>
+        </RunSynchronousCommand>
+      </RunSynchronous>
+    </component>
+  </settings>
+  <settings pass="auditSystem" />
+  <settings pass="auditUser" />
+  <settings pass="oobeSystem">
+    <component name="Microsoft-Windows-International-Core" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+      <InputLocale>0409:00000409;0419:00000419</InputLocale>
+      <SystemLocale>en-US</SystemLocale>
+      <UILanguage>en-US</UILanguage>
+      <UserLocale>en-US</UserLocale>
+    </component>
+    <component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+      <UserAccounts>
+        <AdministratorPassword>
+          <Value />
+          <PlainText>true</PlainText>
+        </AdministratorPassword>
+      </UserAccounts>
+      <AutoLogon>
+        <Username>Administrator</Username>
+        <Enabled>true</Enabled>
+        <LogonCount>1</LogonCount>
+        <Password>
+          <Value />
+          <PlainText>true</PlainText>
+        </Password>
+      </AutoLogon>
+      <OOBE>
+        <ProtectYourPC>3</ProtectYourPC>
+        <HideEULAPage>true</HideEULAPage>
+        <HideWirelessSetupInOOBE>false</HideWirelessSetupInOOBE>
+        <HideOnlineAccountScreens>false</HideOnlineAccountScreens>
+      </OOBE>
+      <FirstLogonCommands>
+        <SynchronousCommand wcm:action="add">
+          <Order>1</Order>
+          <CommandLine>powershell.exe -WindowStyle Hidden -NoProfile -ExecutionPolicy Bypass -File "C:\Windows\Setup\Scripts\Invoke-SetupStage.ps1" -Stage "PostLogon"</CommandLine>
+          <Description>Run PostLogon Scripts</Description>
+        </SynchronousCommand>
+      </FirstLogonCommands>
+    </component>
+  </settings>
+</unattend>

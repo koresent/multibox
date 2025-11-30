@@ -1,2 +1,3 @@
-# Dotfiles
-### Color scheme: [gruvbox](https://github.com/morhetz/gruvbox)
+# multibox
+
+Personal infrastructure-as-code repository designed to automate the lifecycle of my workstations.

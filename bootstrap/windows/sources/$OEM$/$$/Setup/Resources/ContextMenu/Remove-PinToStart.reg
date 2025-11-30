@@ -1,0 +1,12 @@
+Windows Registry Editor Version 5.00
+
+[-HKEY_CLASSES_ROOT\exefile\shellex\ContextMenuHandlers\PintoStartScreen]
+
+[-HKEY_CLASSES_ROOT\Folder\ShellEx\ContextMenuHandlers\PintoStartScreen]
+
+[-HKEY_CLASSES_ROOT\Microsoft.Website\shellex\ContextMenuHandlers\PintoStartScreen]
+
+[-HKEY_CLASSES_ROOT\mscfile\shellex\ContextMenuHandlers\PintoStartScreen]
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked]
+"{470C0EBD-5D73-4d58-9CED-E91E22E23282}"=""
