@@ -1,0 +1,1 @@
+Set-Package -Name topgrade-rs.topgrade -Provider winget

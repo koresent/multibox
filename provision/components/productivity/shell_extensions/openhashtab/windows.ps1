@@ -1,0 +1,1 @@
+Set-Package -Name namazso.OpenHashTab -Provider winget

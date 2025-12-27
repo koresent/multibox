@@ -1,0 +1,40 @@
+matches:
+  # To lower case
+  - trigger: ";low"
+    replace: "{{lower}}"
+    vars:
+      - name: lower
+        type: shell
+        params:
+          shell: powershell
+          cmd: "(Get-Clipboard).ToLower()"
+
+  # To upper case
+  - trigger: ";up"
+    replace: "{{upper}}"
+    vars:
+      - name: upper
+        type: shell
+        params:
+          shell: powershell
+          cmd: "(Get-Clipboard).ToUpper()"
+
+  # To title case
+  - trigger: ";title"
+    replace: "{{title}}"
+    vars:
+      - name: title
+        type: shell
+        params:
+          shell: powershell
+          cmd: "(Get-Culture).TextInfo.ToTitleCase((Get-Clipboard).ToLower())"
+
+  # Oneline
+  - trigger: ";oneline"
+    replace: "{{oneline}}"
+    vars:
+      - name: oneline
+        type: shell
+        params:
+          shell: powershell
+          cmd: "((Get-Clipboard) -join ' ') -replace '\\s+', ' '"

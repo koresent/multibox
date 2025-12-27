@@ -1,0 +1,14 @@
+﻿Eleven
+Igorjmm
+LGPLv3
+themes\Eleven\
+100
+$00FF9933
+clWindow
+$00CC5511
+clAppWorkspace
+clWindowText
+01
+100
+4
+0

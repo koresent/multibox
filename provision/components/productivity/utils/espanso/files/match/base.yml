@@ -1,0 +1,9 @@
+matches:
+  - trigger: ";mail"
+    replace: "koresent@pm.me"
+
+  - trigger: ";tg"
+    replace: "t.me/koresent"
+
+  - trigger: ";me"
+    replace: "Koresent"

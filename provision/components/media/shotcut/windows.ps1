@@ -1,0 +1,1 @@
+Set-Package -Name Meltytech.Shotcut -Provider winget

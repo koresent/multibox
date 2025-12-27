@@ -1,0 +1,76 @@
+/* Hide buttonbox */
+.titlebar-buttonbox-container {
+	display: none;
+}
+
+/* Tab counter */
+tabs {
+    counter-reset: tab-counter;
+}
+hbox.zen-essentials-container tab:not([zen-glance-tab="true"]),
+zen-workspace[active] tab:not([zen-glance-tab="true"]) {
+    counter-increment: tab-counter;
+}
+
+/* Counter styles */
+tab:not([zen-glance-tab="true"]) > .tab-stack > .tab-content::after {
+    content: counter(tab-counter);
+    position: absolute;
+    font-size: 80%;
+    font-weight: bold;
+    color: #a89984;
+}
+
+/* Counter position general */
+zen-workspace[active]
+    tab:not([zen-glance-tab="true"])
+    > .tab-stack
+    > .tab-content::after {
+    top: 10%;
+    right: 10%;
+}
+
+/* Counter position for Zen Essentials */
+hbox.zen-essentials-container
+    tab:not([zen-glance-tab="true"])
+    > .tab-stack
+    > .tab-content::after {
+    top: 10%;
+    right: 18%;
+}
+
+/* Counter position for Zen Sidebar */
+#zen-sidebar-top-buttons {
+    & #zen-sidebar-top-buttons-customization-target {
+        #nav-bar & {
+            padding-inline-end: 1.2em !important;
+        }
+    }
+}
+
+/* Replace sound icon with dot */
+.tab-icon-overlay[soundplaying],
+.tab-icon-overlay[muted] {
+    list-style-image: none !important;
+    background: none !important;
+    position: absolute !important;
+    top: 10% !important;
+    left: 90% !important;
+    transform: translate(-50%, -50%) !important;
+
+    width: 6px !important;
+    height: 6px !important;
+    border-radius: 50% !important;
+    opacity: 1 !important;
+    z-index: 2 !important;
+}
+
+/* Green dot when sound is playing */
+.tab-icon-overlay[soundplaying]:not([muted]) {
+    background-color: #b8bb26 !important;
+}
+
+/* Red dot when sound is muted */
+.tab-icon-overlay[muted] {
+    background-color: #fb4934 !important;
+}

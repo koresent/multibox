@@ -1,0 +1,36 @@
+matches:
+  - trigger: ";sep"
+    replace: "=========================================="
+
+  - trigger: ";lh"
+    replace: "http://localhost:"
+
+  - trigger: ";gcam"
+    replace: "git commit -am \"$|$\""
+
+  - trigger: ";todo"
+    replace: "TODO: $|$ ({{mydate}})"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%Y-%m-%d"
+
+  - trigger: ";html"
+    replace: |
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+          <meta charset="UTF-8">
+          <title>$|$</title>
+      </head>
+      <body>
+
+      </body>
+      </html>
+
+  - trigger: ";cl"
+    replace: "console.log($|$)"
+  
+  - trigger: ";pr"
+    replace: "print($|$)"

@@ -1,0 +1,1 @@
+Set-Package -Name tailspin -Provider scoop

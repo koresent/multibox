@@ -1,0 +1,1 @@
+Set-Package -Name Microsoft.VisualStudio.2022.BuildTools -Provider winget

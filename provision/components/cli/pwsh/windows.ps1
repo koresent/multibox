@@ -1,0 +1,1 @@
+Set-Package -Name Microsoft.PowerShell -Provider winget

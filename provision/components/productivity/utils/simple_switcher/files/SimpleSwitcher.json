@@ -1,0 +1,58 @@
+{
+  "AlternativeLayoutChange": false,
+  "ShowLangsInTrayMenu": true,
+  "SkipAllInjectKeys": false,
+  "SkipLowLevelInjectKeys": false,
+  "background": "",
+  "config_version": "6.6.2",
+  "disableAccessebility": true,
+  "disableInPrograms": [],
+  "fClipboardClearFormat": false,
+  "fixRAlt": false,
+  "fixRAlt_lay_": "0x4090409",
+  "flagsSet": "Twemoji",
+  "force_DbgMode": false,
+  "gui_lang": "Russian",
+  "hotkeys": {
+    "hk_CycleSwitchLayout": "",
+    "hk_EmulateCapsLock": "",
+    "hk_InsertWithoutFormat": "",
+    "hk_InvertCaseSelected": "",
+    "hk_RevertAllRecentText": "Ctrl + CapsLock",
+    "hk_RevertLastWord": "CapsLock",
+    "hk_RevertSelelected": "Ctrl + CapsLock",
+    "hk_RevertSeveralWords": "Shift + CapsLock",
+    "hk_ShowMainWindow": "",
+    "hk_ShowRemainderWnd": "",
+    "hk_ToggleEnabled": "",
+    "hk_toUpperSelected": ""
+  },
+  "isMonitorAdmin": true,
+  "layouts_info": [
+    {
+      "enabled": true,
+      "hotkey": "Shift + Ctrl",
+      "layout": "0x4190419",
+      "win_hotkey": ""
+    },
+    {
+      "enabled": true,
+      "hotkey": "Shift + Alt",
+      "layout": "0x4090409",
+      "win_hotkey": ""
+    }
+  ],
+  "logLevel": 3,
+  "quick_press_ms": 280,
+  "run_programs": [
+    {
+      "args": "",
+      "elevated": false,
+      "hotkey": "",
+      "path": "example: calc.exe"
+    }
+  ],
+  "separate_ext_mode": 0,
+  "theme": "Classic",
+  "win_hotkey_cycle_lang": "LAlt + Shift"
+}

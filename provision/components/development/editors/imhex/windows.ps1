@@ -1,0 +1,1 @@
+Set-Package -Name WerWolv.ImHex -Provider winget

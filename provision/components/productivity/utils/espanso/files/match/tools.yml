@@ -1,0 +1,156 @@
+matches:
+  # Generates a standard GUID (e.g., a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11)
+  - trigger: ";guid"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          shell: powershell
+          cmd: "[guid]::NewGuid().ToString()"
+
+  # Password generator
+  - trigger: ";pass"
+    replace: "{{password}}"
+    vars:
+      - name: form1
+        type: form
+        params:
+          layout: "Password length: [[length]]"
+          fields:
+            length:
+              default: "16"
+      - name: password
+        type: shell
+        params:
+          shell: powershell
+          cmd: "$p = -join ((33..126) | Get-Random -Count {{form1.length}} | % {[char]$_}); Set-Clipboard $p; $p"
+
+  # Passphrase generator
+  - regex: ";ph(?P<count>[1-9])"
+    replace: "{{passphrase}}"
+    vars:
+      - name: passphrase
+        type: shell
+        params:
+          shell: powershell
+          cmd: |
+            & "$env:APPDATA/espanso/scripts/Get-Passphrase.ps1" -Count {{count}}
+
+  # Fetches external IP
+  - trigger: ";ip"
+    replace: "{{ip}}"
+    vars:
+      - name: ip
+        type: shell
+        params:
+          shell: powershell
+          cmd: "Invoke-RestMethod -Uri ipinfo.io/ip"
+
+  # Sluggification
+  - trigger: ";slug"
+    replace: "{{slugged}}"
+    vars:
+      - name: clipboard
+        type: clipboard
+      - name: slugged
+        type: shell
+        params:
+          shell: powershell
+          cmd: "(Get-Clipboard).ToLower() -replace '[^a-z0-9]+', '-' -replace '-+', '-' -replace '^-|-$', ''"
+  
+  # Generates a random MAC address (e.g., 00:1A:2B:3C:4D:5E)
+  - trigger: ";rmac"
+    replace: "{{mac}}"
+    vars:
+      - name: mac
+        type: shell
+        params:
+          shell: powershell
+          cmd: "((1..6) | ForEach-Object { '{0:x2}' -f (Get-Random -Max 256) }) -join ':'"
+
+  # Generates a random hex string (32 characters / 16 bytes)
+  - trigger: ";rhex"
+    replace: "{{hex}}"
+    vars:
+      - name: hex
+        type: shell
+        params:
+          shell: powershell
+          cmd: "-join ((1..16) | ForEach-Object { '{0:x2}' -f (Get-Random -Max 256) })"
+
+  # Base64 encoder
+  - trigger: ";b64e"
+    replace: "{{encoded}}"
+    vars:
+      - name: encoded
+        type: shell
+        params:
+          shell: powershell
+          cmd: "[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes((Get-Clipboard)))"
+
+  # Base64 decoder
+  - trigger: ";b64d"
+    replace: "{{decoded}}"
+    vars:
+      - name: decoded
+        type: shell
+        params:
+          shell: powershell
+          cmd: "[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String((Get-Clipboard)))"
+
+  # Fix Windows path: C:\Users\Name -> /c/Users/Name
+  - trigger: ";fpath"
+    replace: "{{nixpath}}"
+    vars:
+      - name: nixpath
+        type: shell
+        params:
+          shell: powershell
+          cmd: "[regex]::Replace(([string](Get-Clipboard)).Replace('\\', '/'), '^([a-zA-Z]):', {param($m) '/' + $m.Groups[1].Value.ToLower() })"
+
+  # Slash swap: C:\Path -> C:/Path
+  - trigger: ";slash"
+    replace: "{{newpath}}"
+    vars:
+      - name: newpath
+        type: shell
+        params:
+          shell: powershell
+          cmd: "([string](Get-Clipboard)).Replace('\\', '/')"
+
+  # Escape backslashes: C:\Path -> C:\\Path
+  - trigger: ";esc"
+    replace: "{{escaped}}"
+    vars:
+      - name: escaped
+        type: shell
+        params:
+          shell: powershell
+          cmd: "(Get-Clipboard).Replace('\\', '\\\\')"
+
+  # Quick currency conversion (e.g., 100usd)
+  - regex: ";(?P<num>\\d+)(?P<cur>[a-zA-Z]{3})"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          shell: powershell
+          cmd: |
+            & "$env:APPDATA/espanso/scripts/Get-CurrencyConversion.ps1" -amount {{num}} -from {{cur}} -to rub
+
+  # Universal converter via :cur
+  - trigger: ";cur"
+    replace: "{{result}}"
+    vars:
+      - name: form
+        type: form
+        params:
+          layout: "Convert [[amount]] [[from]] to [[to]]"
+      - name: result
+        type: shell
+        params:
+          shell: powershell
+          cmd: |
+            & "$env:APPDATA/espanso/scripts/Get-CurrencyConversion.ps1" -amount {{form.amount}} -from {{form.from}} -to {{form.to}}

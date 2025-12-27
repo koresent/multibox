@@ -1,0 +1,1 @@
+Set-Package -Name Gyan.FFmpeg -Provider winget

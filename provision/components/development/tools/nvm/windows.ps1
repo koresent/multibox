@@ -1,0 +1,1 @@
+Set-Package -Name CoreyButler.NVMforWindows -Provider winget

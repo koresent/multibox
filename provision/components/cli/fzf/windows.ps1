@@ -1,0 +1,1 @@
+Set-Package -Name junegunn.fzf -Provider winget

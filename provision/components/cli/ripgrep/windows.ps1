@@ -1,0 +1,1 @@
+Set-Package -Name BurntSushi.ripgrep.MSVC -Provider winget

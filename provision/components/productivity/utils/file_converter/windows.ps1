@@ -1,0 +1,1 @@
+Set-Package -Name AdrienAllard.FileConverter -Provider winget

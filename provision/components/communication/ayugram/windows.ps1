@@ -1,0 +1,1 @@
+Set-Package -Name RadolynLabs.AyuGramDesktop -Provider winget

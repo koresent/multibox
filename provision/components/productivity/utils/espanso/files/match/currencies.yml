@@ -1,0 +1,30 @@
+matches:
+  - trigger: ";eur"
+    replace: "€"
+
+  - trigger: ";rub"
+    replace: "₽"
+
+  - trigger: ";gbp"
+    replace: "£"
+
+  - trigger: ";jpy"
+    replace: "¥"
+
+  - trigger: ";cny"
+    replace: "¥"
+
+  - trigger: ";uah"
+    replace: "₴"
+
+  - trigger: ";kzt"
+    replace: "₸"
+
+  - trigger: ";btc"
+    replace: "₿"
+
+  - trigger: ";eth"
+    replace: "Ξ"
+
+  - trigger: ";usdt"
+    replace: "₮"

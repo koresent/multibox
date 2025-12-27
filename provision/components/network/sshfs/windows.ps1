@@ -1,0 +1,1 @@
+Set-Package -Name SSHFS-Win.SSHFS-Win -Provider winget

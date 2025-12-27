@@ -1,0 +1,1 @@
+Set-Package -Name Microsoft.PowerToys -Provider winget

@@ -1,0 +1,1 @@
+Set-Package -Name PrismLauncher.PrismLauncher -Provider winget

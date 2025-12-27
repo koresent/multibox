@@ -1,0 +1,22 @@
+{
+"Docker Compose Service Boilerplate": {
+    "prefix": "dcomp",
+    "body": [
+      "services:",
+      "  ${1:service_name}:",
+      "    image: ${2:image:tag}",
+      "    container_name: $1",
+      "    restart: unless-stopped",
+      "    env_file:",
+      "      - ${3:.env}",
+      "    networks:",
+      "      - $1",
+      "",
+      "networks:",
+      "  $1:",
+      "    name: $1",
+      "$0"
+    ],
+    "description": "Generic Docker Compose service"
+  }
+}

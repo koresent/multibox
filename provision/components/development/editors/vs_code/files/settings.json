@@ -1,0 +1,37 @@
+{
+    "chat.commandCenter.enabled": false,
+    "workbench.colorTheme": "Gruvbox Dark Medium",
+    "workbench.productIconTheme": "fluent-icons",
+    "window.controlsStyle": "custom",
+    "redhat.telemetry.enabled": false,
+    "telemetry.editStats.enabled": false,
+    "telemetry.feedback.enabled": false,
+    "telemetry.telemetryLevel": "off",
+    "files.autoSave": "afterDelay",
+    "editor.fontFamily": "Maple Mono NF",
+    "editor.wordWrap": "on",
+    "editor.mouseWheelZoom": true,
+    "editor.formatOnPaste": true,
+    "editor.allowVariableFontsInAccessibilityMode": true,
+    "editor.autoIndentOnPaste": true,
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+    "editor.cursorBlinking": "smooth",
+    "cSpell.enabled": true,
+    "cSpell.language": "en,ru",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "roo-cline.allowedCommands": [
+        "git log",
+        "git diff",
+        "git show"
+    ],
+    "roo-cline.deniedCommands": [],
+    "workbench.editor.empty.hint": "hidden",
+    "powershell.promptToUpdatePowerShell": false,
+    "security.workspace.trust.untrustedFiles": "open",
+    "git.autofetch": true,
+    "window.newWindowProfile": "Default",
+    "extensions.ignoreRecommendations": true
+}

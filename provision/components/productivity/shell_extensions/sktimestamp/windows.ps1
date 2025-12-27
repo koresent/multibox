@@ -1,0 +1,1 @@
+Set-Package -Name StefansTools.SKTimeStamp -Provider winget

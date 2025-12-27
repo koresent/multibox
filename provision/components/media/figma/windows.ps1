@@ -1,0 +1,1 @@
+Set-Package -Name Figma.Figma -Provider winget

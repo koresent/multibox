@@ -1,0 +1,1 @@
+Set-Package -Name ajeetdsouza.zoxide -Provider winget

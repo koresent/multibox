@@ -1,0 +1,36 @@
+matches:
+  # RU 21.12.2025 (DD.MM.YYYY)
+  - trigger: ";dru"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%d.%m.%Y"
+
+  # US 12/21/2025 (MM/DD/YYYY)
+  - trigger: ";dus"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%m/%d/%Y"
+
+  # ISO 2025-12-21 (YYYY-MM-DD)
+  - trigger: ";diso"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%Y-%m-%d"
+
+  # Current time
+  - trigger: ";time"
+    replace: "{{mytime}}"
+    vars:
+      - name: mytime
+        type: date
+        params:
+          format: "%H:%M"

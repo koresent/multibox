@@ -1,0 +1,1 @@
+Set-Package -Name sharkdp.bat -Provider winget

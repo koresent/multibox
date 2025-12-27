@@ -1,0 +1,89 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "show_wrap_guides": false,
+  "git": {
+    "inline_blame": {
+      "enabled": false
+    }
+  },
+  "audio": {
+    "experimental.rodio_audio": false
+  },
+  "terminal": {
+    "blinking": "off"
+  },
+  "prettier": {
+    "allowed": true
+  },
+  "inlay_hints": {
+    "enabled": true
+  },
+  "indent_guides": {
+    "line_width": 2,
+    "active_line_width": 2,
+    "enabled": true,
+    "coloring": "indent_aware",
+    "background_coloring": "disabled"
+  },
+  "soft_wrap": "editor_width",
+  "toolbar": {
+    "code_actions": true
+  },
+  "minimap": {
+    "thumb": "always",
+    "show": "always"
+  },
+  "scrollbar": {
+    "show": "auto"
+  },
+  "auto_signature_help": true,
+  "autoscroll_on_clicks": true,
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 2000
+    }
+  },
+  "multi_cursor_modifier": "cmd_or_ctrl",
+  "cursor_shape": "bar",
+  "cursor_blink": false,
+  "ui_font_family": "Figtree",
+  "buffer_font_family": "Maple Mono NF",
+  "buffer_font_features": {
+    "calt": true,
+    "kern": true,
+    "liga": true
+  },
+  "restore_on_startup": "none",
+  "when_closing_with_no_tabs": "keep_window_open",
+  "icon_theme": "Base Charmed Icons",
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "vim_mode": true,
+  "ui_font_size": 16,
+  "buffer_font_size": 15,
+  "theme": "Gruvbox Dark",
+  "auto_install_extensions": { 
+    "ansible": true,
+    "charmed-icons": true,
+    "django": true,
+    "docker-compose": true,
+    "dockerfile": true,
+    "html": true,
+    "ini": true,
+    "log": true,
+    "make": true,
+    "powershell": true,
+    "python-requirements": true,
+    "rainbow-csv": true,
+    "toml": true
+  }
+}

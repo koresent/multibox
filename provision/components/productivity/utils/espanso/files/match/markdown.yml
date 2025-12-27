@@ -1,0 +1,32 @@
+matches:
+  - trigger: ";nitem"
+    replace: "- [ ] "
+  
+  - trigger: ";ditem"
+    replace: "- [x] "
+
+  - trigger: ";code"
+    replace: |
+      ```
+      $|$
+      ```
+
+  - trigger: ";url"
+    replace: "[$|$]({{clipboard}})"
+    vars:
+      - name: clipboard
+        type: clipboard
+
+  - trigger: ";table"
+    replace: |
+      | Header 1 | Header 2 |
+      | -------- | -------- |
+      | $|$      |          |
+      |          |          |
+
+  - trigger: ";spoiler"
+    replace: |
+      <details>
+      <summary>$|$</summary>
+
+      </details>

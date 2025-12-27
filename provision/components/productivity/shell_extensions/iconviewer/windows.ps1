@@ -1,0 +1,1 @@
+Set-Package -Name BotProductions.IconViewer -Provider winget

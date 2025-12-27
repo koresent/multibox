@@ -1,0 +1,20 @@
+matches:
+  - trigger: ";-"
+    replace: "—"
+   
+  - trigger: ";\""
+    replace: "«$|$»"
+  - trigger: ";qq"
+    replace: "“$|$”"
+
+  - trigger: ";tm"
+    replace: "™"
+  - trigger: ";reg"
+    replace: "®"
+  - trigger: ";copy"
+    replace: "©"
+
+  - trigger: ";par"
+    replace: "¶"
+  - trigger: ";sec"
+    replace: "§"

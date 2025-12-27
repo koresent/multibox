@@ -1,0 +1,107 @@
+{
+  "Systemd Service Unit": {
+    "prefix": "service",
+    "body": [
+      "[Unit]",
+      "Description=${1:My Custom Service}",
+      "After=network.target",
+      "",
+      "[Service]",
+      "Type=${2|simple,forking,oneshot,notify|}",
+      "User=${3:root}",
+      "Group=${4:root}",
+      "WorkingDirectory=${5:/opt/app}",
+      "ExecStart=${6:/usr/bin/python3 app.py}",
+      "Restart=on-failure",
+      "RestartSec=5s",
+      "Environment=NODE_ENV=production",
+      "",
+      "[Install]",
+      "WantedBy=multi-user.target",
+      "$0"
+    ],
+    "description": "Standard systemd service definition"
+  },
+  "Systemd Timer": {
+    "prefix": "timer",
+    "body": [
+      "[Unit]",
+      "Description=Run ${1:servicename}.service periodically",
+      "",
+      "[Timer]",
+      "# Run 15 min after boot, then every day",
+      "OnBootSec=15min",
+      "OnUnitActiveSec=1d",
+      "# Or specific time: *-*-* 02:00:00",
+      "OnCalendar=${2:*-*-* 02:00:00}",
+      "Persistent=true",
+      "Unit=${1:servicename}.service",
+      "",
+      "[Install]",
+      "WantedBy=timers.target",
+      "$0"
+    ],
+    "description": "Systemd timer to trigger a service"
+  },
+  "Systemd Mount Unit": {
+    "prefix": "mount",
+    "body": [
+      "[Unit]",
+      "Description=Mount ${1:disk_name}",
+      "",
+      "[Mount]",
+      "What=${2:/dev/sdb1}",
+      "Where=${3:/mnt/data}",
+      "Type=${4|ext4,xfs,nfs|}",
+      "Options=defaults",
+      "",
+      "[Install]",
+      "WantedBy=multi-user.target",
+      "$0"
+    ],
+    "description": "Systemd mount unit (fstab alternative)"
+  },
+  "Systemd Networkd Static": {
+    "prefix": "netstatic",
+    "body": [
+      "[Match]",
+      "Name=${1:eth0}",
+      "",
+      "[Network]",
+      "Address=${2:192.168.1.10/24}",
+      "Gateway=${3:192.168.1.1}",
+      "DNS=${4:1.1.1.1}",
+      "DNS=8.8.8.8",
+      "$0"
+    ],
+    "description": "Static IP configuration for systemd-networkd"
+  },
+  "Systemd Networkd DHCP": {
+    "prefix": "netdhcp",
+    "body": [
+      "[Match]",
+      "Name=${1:en*}",
+      "",
+      "[Network]",
+      "DHCP=yes",
+      "$0"
+    ],
+    "description": "DHCP configuration for systemd-networkd"
+  },
+  "Systemd Path Trigger": {
+    "prefix": "path",
+    "body": [
+      "[Unit]",
+      "Description=Monitor ${1:/tmp/trigger_file}",
+      "",
+      "[Path]",
+      "PathModified=$1",
+      "Unit=${2:service_to_trigger}.service",
+      "",
+      "[Install]",
+      "WantedBy=multi-user.target",
+      "$0"
+    ],
+    "description": "Trigger a service when a file changes"
+  }
+}

@@ -1,0 +1,34 @@
+matches:
+  - trigger: ";lar"
+    replace: "←"
+
+  - trigger: ";rar"
+    replace: "→"
+
+  - trigger: ";lrar"
+    replace: "↔"
+
+  - trigger: ";uar"
+    replace: "↑"
+
+  - trigger: ";dar"
+    replace: "↓"
+
+  - trigger: ";udar"
+    replace: "↕"
+
+  - trigger: ";ok"
+    replace: "✅"
+  - trigger: ";x"
+    replace: "❌"
+  - trigger: ";warn"
+    replace: "⚠"
+  - trigger: ";fire"
+    replace: "🔥"
+
+  - trigger: ";."
+    replace: "•"
+  - trigger: ";>"
+    replace: "➤"
+  - trigger: ";st"
+    replace: "✦"

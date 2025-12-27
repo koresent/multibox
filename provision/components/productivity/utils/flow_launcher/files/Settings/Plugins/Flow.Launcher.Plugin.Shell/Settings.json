@@ -1,0 +1,27 @@
+{
+  "Shell": 2,
+  "ReplaceWinR": false,
+  "CloseShellAfterPress": false,
+  "LeaveShellOpen": false,
+  "RunAsAdministrator": false,
+  "UseWindowsTerminal": false,
+  "ShowOnlyMostUsedCMDs": false,
+  "ShowOnlyMostUsedCMDsNumber": 5,
+  "CommandHistory": {
+    "ping google.com": 1,
+    "shell:startup": 4,
+    "explorer shell:startup": 1,
+    "cmd": 7,
+    "appwiz.cpl": 2,
+    "C:\\Users\\elchaninov.k.a\\AppData\\Roaming": 1,
+    "sysdm.cpl": 1,
+    "main.cpl": 6,
+    "mouse": 1,
+    "mstsc": 15,
+    "pwsh": 52,
+    "virtmgmt.msc": 2,
+    "calc": 1,
+    "shell:apps": 2,
+    "taskmgt.msc": 1
+  }
+}

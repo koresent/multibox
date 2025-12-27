@@ -1,0 +1,1 @@
+Set-Package -Name JGraph.Draw -Provider winget

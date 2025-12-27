@@ -1,0 +1,1 @@
+Set-Package -Name WinFsp.WinFsp -Provider winget
